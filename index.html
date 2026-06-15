@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arena Sport Club | Loja de Artigos Esportivos</title>
+    <style>
+        /* Configurações Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Cabeçalho e Navegação */
+        header {
+            background-color: #1a1a2e;
+            color: #fff;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            width: 85%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            color: #e94560;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #e94560;
+        }
+
+        /* Banner Principal */
+        .banner {
+            background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)), url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .banner h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* Seção de Produtos */
+        .produtos-section {
+            width: 85%;
+            margin: 40px auto;
+        }
+
+        .produtos-section h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .produtos-section h3::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #e94560;
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        /* Cartão do Produto */
+        .produto-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .produto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .produto-imagem {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .produto-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .produto-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .produto-categoria {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .produto-nome {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .produto-preco {
+            font-size: 20px;
+            color: #e94560;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn-comprar {
+            display: inline-block;
+            width: 100%;
+            padding: 10px;
+            background-color: #1a1a2e;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-comprar:hover {
+            background-color: #e94560;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #1a1a2e;
+            color: #888;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        footer strong {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Arena<span>Sport</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Produtos</a></li>
+                    <li><a href="#">Categorias</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="banner">
+        <h2>Seu Treino Começa Aqui</h2>
+        <p>Os melhores equipamentos e mantos do seu time de coração com os melhores preços.</p>
+    </section>
+
+    <main class="produtos-section">
+        <h3>Produtos em Destaque</h3>
+        
+        <div class="grid-produtos">
+            
+            <div class="produto-card">
+                <div class="produto-imagem">
+                    <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=400&q=80" alt="Bola de Futebol">
+                </div>
+                <div class="produto-info">
+                    <p class="produto-categoria">Futebol</p>
+                    <h4 class="produto-nome">Bola de Futebol Campo Pro</h4>
+                    <p class="produto-preco">R$ 129,90</p>
+                    <a href="#" class="btn-comprar">Adicionar ao Carrinho</a>
+                </div>
+            </div>
+
+            <div class="produto-card">
+                <div class="produto-imagem">
+                    <img src="https://images.unsplash.com/photo-1517438476312-10d79c07750d?auto=format&fit=crop&w=400&q=80" alt="Luvas de Boxe">
+                </div>
+                <div class="produto-info">
+                    <p class="produto-categoria">Combate / Academia</p>
+                    <h4 class="produto-nome">Luvas de Boxe / Treino Black</h4>
+                    <p class="produto-preco">R$ 189,90</p>
+                    <a href="#" class="btn-comprar">Adicionar ao Carrinho</a>
+                </div>
+            </div>
+
+            <div class="produto-card">
+                <div class="produto-imagem">
+                    <img src="https://images.unsplash.com/photo-1577223625856-7589957df221?auto=format&fit=crop&w=400&q=80" alt="Camisa de Time">
+                </div>
+                <div class="produto-info">
+                    <p class="produto-categoria">Vestuário</p>
+                    <h4 class="produto-nome">Camisa Oficial de Futebol</h4>
+                    <p class="produto-preco">R$ 299,90</p>
+                    <a href="#" class="btn-comprar">Adicionar ao Carrinho</a>
+                </div>
+            </div>
+
+            <div class="produto-card">
+                <div class="produto-imagem">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80" alt="Tênis de Corrida">
+                </div>
+                <div class="produto-info">
+                    <p class="produto-categoria">Corrida</p>
+                    <h4 class="produto-nome">Tênis Performance Run</h4>
+                    <p class="produto-preco">R$ 349,90</p>
+                    <a href="#" class="btn-comprar">Adicionar ao Carrinho</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 <strong>ArenaSport Club</strong>. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
