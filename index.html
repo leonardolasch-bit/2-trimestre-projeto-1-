@@ -3,84 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpeedShop | Acessórios de Performance</title>
-    <link rel="stylesheet" href="style.css">
+    <title>TurboDrop | Performance e Acessórios</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            border-bottom: 3px solid #ff3333;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            color   font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            color: #aaa;
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+: #ff3333;
+         
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            color: #ff3333;
+            border-left: 5px solid #ff3333;
+            padding-left: 10px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ff3333;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #222;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .card-desc {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            height: 65px;
+            overflow: hidden;
+        }
+
+        .card-price {
+            font-size: 1.6rem;
+            color: #ff3333;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #ff3333;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .btn-buy:hover {
+            background-color: #cc0000;
+        }
+
+        footer {
+            background-color: #111;
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">SPEED<span>SHOP</span></div>
-        <nav>
-            <a href="#produtos">Produtos</a>
-            <a href="#contato">Contato</a>
-        </nav>
+        <h1>TurboDrop Performance</h1>
+        <p>A maior linha de injeções programáveis e hardware para o seu projeto turbo</p>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Alta Performance para o seu Motor</h1>
-            <p>As melhores peças, turbinas e eletrônica embarcada para extrair o máximo de potência.</p>
-            <a href="#produtos" class="btn">Ver Catálogo</a>
+    <div class="container">
+
+        <h2>Módulos FuelTech</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <img src="https://placehold.co/400x300/1a1a1a/ff3333?text=FuelTech+FT300" alt="FuelTech FT300">
+                <div class="card-content">
+                    <div class="card-title">FuelTech FT300</div>
+                    <div class="card-desc">Ideal para projetos de arrancada e rua que buscam controle de injeção e ignição direto no módulo.</div>
+                    <div class="card-price">R$ 2.190,00</div>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://placehold.co/400x300/1a1a1a/ff3333?text=FuelTech+FT350" alt="FuelTech FT350">
+                <div class="card-content">
+                    <div class="card-title">FuelTech FT350</div>
+                    <div class="card-desc">Painel touch screen colorido, ideal para quem quer visualização rápida e ajustes fáceis em motores de pistão.</div>
+                    <div class="card-price">R$ 2.990,00</div>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://placehold.co/400x300/1a1a1a/ff3333?text=FuelTech+FT400" alt="FuelTech FT400">
+                <div class="card-content">
+                    <div class="card-title">FuelTech FT400</div>
+                    <div class="card-desc">Gabinete em alumínio com ótimo custo-benefício, controle de tração integrado e comandos avançados.</div>
+                    <div class="card-price">R$ 3.800,00</div>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://placehold.co/400x300/1a1a1a/ff3333?text=FuelTech+FT450" alt="FuelTech FT450">
+                <div class="card-content">
+                    <div class="card-title">FuelTech FT450</div>
+                    <div class="card-desc">Linha PowerFT. Possui display touch, comunicação CAN, controle de malha fechada e design compacto.</div>
+                    <div class="card-price">R$ 4.390,00</div>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://placehold.co/400x300/1a1a1a/ff3333?text=FuelTech+FT500" alt="FuelTech FT500">
+                <div class="card-content">
+                    <div class="card-title">FuelTech FT500</div>
+                    <div class="card-desc">Processamento rápido com dashboard completo na tela, perfeito para carros de rua fortes e pistas.</div>
+                    <div class="card-price">R$ 5.500,00</div>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://placehold.co/400x300/1a1a1a/ff3333?text=FuelTech+FT550" alt="FuelTech FT550">
+                <div class="card-content">
+                    <div class="card-title">FuelTech FT550</div>
+                    <div class="card-desc">Conta com acelerômetro, giroscópio interno e mais entradas de sensores para mapeamento completo do motor.</div>
+                    <div class="card-price">R$ 8.350,00</div>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://placehold.co/400x300/1a1a1a/ff3333?text=FuelTech+FT600" alt="FuelTech FT600">
+                <div class="card-content">
+                    <div class="card-title">FuelTech FT600</div>
+                    <div class="card-desc">Gabinete em alumínio, painel de LEDs integrado (Shift Light) e o topo para carros de alta performance.</div>
+                    <div class="card-price">R$ 12.530,00</div>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://placehold.co/400x300/1a1a1a/ff3333?text=FuelTech+FT700" alt="FuelTech FT700">
+                <div class="card-content">
+                    <div class="card-title">FuelTech FT700</div>
+                    <div class="card-desc">Desenvolvida para motores extremos de competição, com número massivo de entradas e saídas configuráveis.</div>
+                    <div class="card-price">R$ 23.655,00</div>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://placehold.co/400x300/1a1a1a/ff3333?text=FuelTech+FT700+Plus" alt="FuelTech FT700 Plus">
+                <div class="card-content">
+                    <div class="card-title">FuelTech FT700 Plus</div>
+                    <div class="card-desc">A versão definitiva e atualizada com telemetria avançada e controle sequencial máximo.</div>
+                    <div class="card-price">R$ 25.900,00</div>
+                    <a href="#" class="btn-buy">Comprar</a>
+                </div>
+            </div>
+
         </div>
-    </section>
 
-    <section id="produtos" class="products-section">
-        <h2>Nossos Produtos</h2>
-        <div class="products-container">
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1616422285623-13ff0162193c?w=500" alt="Turbina de Alta Performance">
-                </div>
-                <div class="product-info">
-                    <h3>Turbina Roletada R-549</h3>
-                    <p class="description">Turbina de alta eficiência com caixa quente em inox, ideal para projetos de rua ou pista que buscam encher rápido e manter a pressão em altas rotações.</p>
-                    <span class="price">R$ 4.500,00</span>
-                    <button class="buy-btn">Comprar</button>
+        <h2>Turbinas e Componentes</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <img src="https://placehold.co/400x300/1a1a1a/ff3333?text=Turbina+Roletada" alt="Turbina Roletada">
+                <div class="card-content">
+                    <div class="card-title">Turbina Roletada .50/.70</div>
+                    <div class="card-desc">Enchimento rápido e excelente fluxo para motores 4 cilindros extraírem máxima potência.</div>
+                    <div class="card-price">R$ 4.200,00</div>
+                    <a href="#" class="btn-buy">Comprar</a>
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1611245329358-18714447c001?w=500" alt="Rodas Esportivas">
-                </div>
-                <div class="product-info">
-                    <h3>Rodas Forjadas Aro 17"</h3>
-                    <p class="description">Rodas ultraleves forjadas em liga de alta resistência. Reduzem o peso suspenso do veículo, melhorando a aceleração e o comportamento em curvas.</p>
-                    <span class="price">R$ 6.200,00 <small>(Jogo)</small></span>
-                    <button class="buy-btn">Comprar</button>
+            <div class="card">
+                <img src="https://placehold.co/400x300/1a1a1a/ff3333?text=Pneu+Semi-Slick" alt="Pneu Semi-Slick">
+                <div class="card-content">
+                    <div class="card-title">Pneu Semi-Slick R888R</div>
+                    <div class="card-desc">Aderência extrema na arrancada e curvas, ideal para tracionar carros de alta potência no asfalto.</div>
+                    <div class="card-price">R$ 1.650,00</div>
+                    <a href="#" class="btn-buy">Comprar</a>
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1552338804-c5e4b3081e6a?w=500" alt="Módulo de Injeção">
-                </div>
-                <div class="product-info">
-                    <h3>Bicos Injetores 80lbs/h</h3>
-                    <p class="description">Conjunto de bicos injetores de alta impedância, calibrados a laser. Perfeitos para motores modificados a álcool (Etanol) ou Gasolina.</p>
-                    <span class="price">R$ 1.200,00</span>
-                    <button class="buy-btn">Comprar</button>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=500" alt="FuelTech FT550">
-                </div>
-                <div class="product-info">
-                    <h3>Módulo FuelTech FT550</h3>
-                    <p class="description">Injeção programável com painel touchscreen integrado. Controle total de ignição, injeção, controle de tração, data logger e funções de pista avançadas.</p>
-                    <span class="price">R$ 7.890,00</span>
-                    <button class="buy-btn">Comprar</button>
+            <div class="card">
+                <img src="https://placehold.co/400x300/1a1a1a/ff3333?text=Banco+Concha" alt="Banco Concha">
+                <div class="card-content">
+                    <div class="card-title">Banco Concha Reclinável</div>
+                    <div class="card-desc">Mais segurança e firmeza na pilotagem com passadores para cinto de 4 ou 5 pontos.</div>
+                    <div class="card-price">R$ 2.100,00</div>
+                    <a href="#" class="btn-buy">Comprar</a>
                 </div>
             </div>
 
         </div>
-    </section>
+
+    </div>
 
     <footer>
-        <p>&copy; 2026 SpeedShop Motorsport. Todos os direitos reservados.</p>
+        <p>&copy; 2026 TurboDrop Performance - Desenvolvido para entusiastas de velocidade.</p>
     </footer>
 
 </body>
