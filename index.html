@@ -1,169 +1,73 @@
-// Lista de Produtos Performance
-const products = [
-    {
-        id: 1,
-        name: "Injeção Eletrônica FuelTech FT450",
-        price: 4500.00,
-        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=500",
-        description: "Injeção programável completa com tela touch screen, controle de tração, data logger integrado e suporte a motores de 1 a 12 cilindros."
-    },
-    {
-        id: 2,
-        name: "Pneu Slick Hoosier 26/10.0-15",
-        price: 1850.00,
-        image: "https://images.unsplash.com/photo-1578844251758-2f71da64c96f?w=500",
-        description: "Pneu de arrancada 100% slick, composto macio para máxima aderência na pista."
-    },
-    {
-        id: 3,
-        name: "Pneu Semislick Toyo R888R 205/50 R15",
-        price: 980.00,
-        image: "https://images.unsplash.com/photo-1606577924006-27d39b132ae2?w=500",
-        description: "Pneu homologado para rua e track day. Excelente grip em piso seco e composto de alta performance."
-    },
-    {
-        id: 4,
-        name: "Pneu Radial High Performance 195/55 R15",
-        price: 420.00,
-        image: "https://images.unsplash.com/photo-1543465077-db45d34b88a5?w=500",
-        description: "Pneu radial ideal para o dia a dia e uso urbano com ótima durabilidade e preço acessível."
-    },
-    {
-        id: 5,
-        name: "Banco Concha Esportivo Reclinável",
-        price: 890.00,
-        image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500",
-        description: "Banco concha anatômico com acabamento em veludo, excelente suporte lateral e compatível com cinto de 4 pontos."
-    },
-    {
-        id: 6,
-        name: "Turbina Master Power .50 APL 240",
-        price: 1650.00,
-        image: "https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=500",
-        description: "Turbocompressor ideal para motores 1.6 a 2.0. Excelente fluxo de ar e resposta rápida de pressão."
-    },
-    {
-        id: 7,
-        name: "Chicote Completo Malha Náutica FT",
-        price: 650.00,
-        image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500",
-        description: "Chicote elétrico pré-montado, revestido em malha náutica de alta resistência, pronto para instalação em injeções programáveis."
-    }
-];
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RaceParts Performance | Peças & Tuning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-let cart = [];
+    <header>
+        <div class="logo">
+            <h1>Race<span>Parts</span></h1>
+        </div>
+        <div class="cart-icon" onclick="toggleCart()">
+            🛒 Carrinho (<span id="cart-count">0</span>)
+        </div>
+    </header>
 
-// Renderizar produtos na tela
-function renderProducts() {
-    const grid = document.getElementById('products-grid');
-    grid.innerHTML = '';
+    <section class="banner">
+        <h2>As Melhores Peças Performance para o Seu Projeto</h2>
+        <p>Injeções programáveis, pneus slick, turbinas e muito mais!</p>
+    </section>
 
-    products.forEach(product => {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        card.innerHTML = `
-            <img src="${product.image}" alt="${product.name}" onclick="openProductModal(${product.id})">
-            <div class="product-info">
-                <h3>${product.name}</h3>
-                <div class="price">R$ ${product.price.toFixed(2)}</div>
-                <button class="btn-secondary" onclick="openProductModal(${product.id})">Ver Detalhes</button>
-                <button class="btn-primary" onclick="addToCart(${product.id})">Adicionar ao Carrinho</button>
+    <main class="products-grid" id="products-grid">
+        </main>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeProductModal()">&times;</span>
+            <div class="modal-body">
+                <img id="modal-img" src="" alt="Produto">
+                <div class="modal-info">
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-description"></p>
+                    <h3 id="modal-price"></h3>
+                    <button id="modal-add-btn" class="btn-primary">Adicionar ao Carrinho</button>
+                </div>
             </div>
-        `;
-        grid.appendChild(card);
-    });
-}
+        </div>
+    </div>
 
-// Abrir Modal de Produto
-function openProductModal(id) {
-    const product = products.find(p => p.id === id);
-    if (!product) return;
-
-    document.getElementById('modal-img').src = product.image;
-    document.getElementById('modal-title').innerText = product.name;
-    document.getElementById('modal-description').innerText = product.description;
-    document.getElementById('modal-price').innerText = `R$ ${product.price.toFixed(2)}`;
-    
-    const addBtn = document.getElementById('modal-add-btn');
-    addBtn.onclick = function() {
-        addToCart(product.id);
-        closeProductModal();
-    };
-
-    document.getElementById('product-modal').style.display = 'flex';
-}
-
-function closeProductModal() {
-    document.getElementById('product-modal').style.display = 'none';
-}
-
-// Adicionar ao Carrinho
-function addToCart(id) {
-    const product = products.find(p => p.id === id);
-    cart.push(product);
-    updateCart();
-}
-
-// Atualizar Carrinho
-function updateCart() {
-    document.getElementById('cart-count').innerText = cart.length;
-    const cartItems = document.getElementById('cart-items');
-    cartItems.innerHTML = '';
-
-    let total = 0;
-    cart.forEach((item, index) => {
-        total += item.price;
-        const div = document.createElement('div');
-        div.style.display = 'flex';
-        div.style.justifySpaceBetween = 'space-between';
-        div.style.marginBottom = '10px';
-        div.innerHTML = `
-            <span>${item.name} - R$ ${item.price.toFixed(2)}</span>
-            <button style="width: auto; padding: 2px 8px; background: red; color: white;" onclick="removeFromCart(${index})">X</button>
-        `;
-        cartItems.appendChild(div);
-    });
-
-    document.getElementById('cart-total').innerText = total.toFixed(2);
-}
-
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    updateCart();
-}
-
-function toggleCart() {
-    const modal = document.getElementById('cart-modal');
-    modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
-}
-
-// Opções de Pagamento
-function selectPayment(type) {
-    const details = document.getElementById('payment-details');
-    if (type === 'pix') {
-        details.innerHTML = `<p><strong>Chave Pix (CNPJ):</strong> 12.345.678/0001-90</p><p><small>Ganhe 5% de desconto no Pix!</small></p>`;
-    } else {
-        details.innerHTML = `
-            <input type="text" placeholder="Número do Cartão" style="width:100%; margin-bottom:8px; padding:8px;">
-            <div style="display:flex; gap:10px;">
-                <input type="text" placeholder="MM/AA" style="width:50%; padding:8px;">
-                <input type="text" placeholder="CVV" style="width:50%; padding:8px;">
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleCart()">&times;</span>
+            <h2>Seu Carrinho</h2>
+            <div id="cart-items">
+                </div>
+            <div class="cart-summary">
+                <h3>Total: R$ <span id="cart-total">0.00</span></h3>
             </div>
-        `;
-    }
-}
 
-// Finalizar Compra
-function checkout() {
-    if (cart.length === 0) {
-        alert("Seu carrinho está vazio!");
-        return;
-    }
-    alert("Pedido realizado com sucesso! Obrigado por comprar na RaceParts.");
-    cart = [];
-    updateCart();
-    toggleCart();
-}
+            <div class="payment-section">
+                <h3>Forma de Pagamento</h3>
+                <label>
+                    <input type="radio" name="payment" value="pix" checked onclick="selectPayment('pix')"> Pix (5% de Desconto)
+                </label>
+                <label>
+                    <input type="radio" name="payment" value="card" onclick="selectPayment('card')"> Cartão de Crédito
+                </label>
 
-// Inicializar vitrine
-renderProducts();
+                <div id="payment-details" class="payment-details">
+                    <p><strong>Chave Pix:</strong> contato@raceparts.com.br</p>
+                </div>
+            </div>
+
+            <button class="btn-success" onclick="checkout()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
